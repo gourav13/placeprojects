@@ -1,7 +1,10 @@
 const route=require('express').Router()
-const product=require('../db/model.js').product
-route.get('/',(req,res)=>
-{
+const product=require('../db/model.js').products
+const multer = require('multer')
+const upload = multer({dest: 'uploads/'})
+const fs = require('fs')
+
+route.get('/',(req,res)=>{
     res.render('addproducts.hbs')
 })
 route.post('/',(req,res)=>
@@ -19,4 +22,6 @@ route.post('/',(req,res)=>
     })
 
 })
+
+
 exports=module.exports=route

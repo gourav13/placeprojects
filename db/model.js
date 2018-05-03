@@ -21,7 +21,8 @@ const products=db.define('producttable',{
         type:datatypes.STRING,
         allowNull:false
     },
-    pprice:datatypes.STRING
+    pprice:datatypes.STRING,
+
 
 })
 db.sync().then(() => "Database created")

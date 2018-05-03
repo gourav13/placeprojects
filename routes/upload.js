@@ -3,7 +3,7 @@ const multer = require('multer')
 const upload = multer({dest: 'uploads/'})
 const fs = require('fs')
 
-route.get('/',(req,res)=>{
+ route.get('/',(req,res)=>{
     res.render('upload.hbs')
 })
 route.post('/', upload.single('photo'), (req, res) =>

@@ -5,7 +5,7 @@ const upload = multer({dest: 'uploads/'})
 const fs = require('fs')
 
 route.get('/',(req,res)=>{
-    res.render('addproducts.hbs')
+    res.render('front.hbs')
 })
 route.post('/',(req,res)=>
 {

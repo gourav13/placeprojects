@@ -8,6 +8,8 @@ const pool = new Pool({
     ssl: true
 });
 
+app.use('/',express.static(path.join(__dirname,'public')))
+
 app.get('/db', async (req, res) => {
     try {
         const client = await pool.connect()
@@ -30,8 +32,6 @@ var a=[1,2,3]
 app.set ('port',(process.env.PORT||3030));
 app.set('views engine','hbs');
 
-app.use('/',express.static(path.join(__dirname,'public')))
-
 app.get('/',(req,res)=>{
     res.render('front.hbs',{a})
 })
@@ -42,6 +42,8 @@ app.use('/login',require('./routes/login.js'))
 app.use('/signup',require('./routes/signup.js'))
 app.use('/addproducts',require('./routes/addproducts.js'))
 app.use('/products',require('./routes/products.js'))
+app.use('/cart',require('./routes/cart.js'))
+
 app.use('/upload',require('./routes/upload.js'))
     .get('/cool', (req, res) => res.send(cool()))
 app.listen(app.get('port'),()=>{

@@ -22,12 +22,26 @@ const products=db.define('producttable',{
         allowNull:false
     },
     pprice:datatypes.STRING,
-
-
+    idd:{
+        type:datatypes.STRING,
+        allowNull:true
+    },
+})
+const cart=db.define('cartitems',{
+    pname:{
+        type:datatypes.STRING,
+        allowNull:false
+    },
+    pprice:datatypes.STRING,
+    idd:{
+        type:datatypes.STRING,
+        allowNull:true
+    },
 })
 db.sync().then(() => "Database created")
 
 exports = module.exports = {
+    cart,
     db,
     user,
     products,

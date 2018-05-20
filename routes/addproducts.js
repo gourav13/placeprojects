@@ -5,13 +5,14 @@ const upload = multer({dest: 'uploads/'})
 const fs = require('fs')
 
 route.get('/',(req,res)=>{
-    res.render('front.hbs')
+     res.render('addproducts.hbs')
 })
 route.post('/',(req,res)=>
 {
     product.create({
         pname:req.body.pname,
-        pprice:req.body.pprice
+        pprice:req.body.pprice,
+        idd:req.body.pname,
 
     }).then((p)=>{
         console.log('---------------------------------------------------------------------------------------------------------')

@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/138a39244d.js"></script>
+    <script src="cart_add.js"></script>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -13,11 +16,12 @@
                 <div class="card text-center mt-4 ml-2" style="display:inline-block;width:200px;">
                     <div class="card-header">
                         {{x.pname}}
+                        <i  class="fa fa-cart-plus fa-2x" style=" float:right;" aria-hidden="true"  onclick="add_to_cart('{{x.idd}}')"></i>
+
                     </div>
                     <div class="card-body">
                         <a href="#" class="btn btn-primary">{{x.pprice}}</a>
                     </div>
-
                 </div>
 
             {{/each}}

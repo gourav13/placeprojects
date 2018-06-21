@@ -16,28 +16,28 @@ const user=db.define('usertable',{
     password:datatypes.STRING
 
 })
+// const products=db.define('producttable',{
+//     pname:datatypes.STRING,
+//     pprice:datatypes.STRING,
+//     pprice:datatypes.STRING,
+//     idd:datatypes.STRING,
+// })
 const products=db.define('producttable',{
-    pname:{
-        type:datatypes.STRING,
-        allowNull:false
-    },
+    pname:datatypes.STRING,
     pprice:datatypes.STRING,
-    idd:{
-        type:datatypes.STRING,
-        allowNull:true
-    },
+    id:{
+     type:datatypes.INTEGER,
+     autoIncrement:true,
+        primaryKey:true
+     }
 })
-const cart=db.define('cartitems',{
-    pname:{
-        type:datatypes.STRING,
-        allowNull:false
-    },
-    pprice:datatypes.STRING,
-    idd:{
-        type:datatypes.STRING,
-        allowNull:true
-    },
+
+const cart=db.define('carttable',{
+     iid:datatypes.INTEGER,
+     quantity:datatypes.INTEGER
 })
+
+
 db.sync().then(() => "Database created")
 
 exports = module.exports = {

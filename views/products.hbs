@@ -9,14 +9,16 @@
     <title>Title</title>
 </head>
 <body>
-<div class="container">
+<a href="cart"><i  class="fa fa-cart-plus fa-2x" style=" float:right;" aria-hidden="true"  onclick="add_to_cart('{{x.idd}}')"></i>
+</a>
+    <div class="container">
     <div class="row" >
         <div class="col-12" >
             {{#each pro as |x|}}
                 <div class="card text-center mt-4 ml-2" style="display:inline-block;width:200px;">
                     <div class="card-header">
                         {{x.pname}}
-                        <i  class="fa fa-cart-plus fa-2x" style=" float:right;" aria-hidden="true"  onclick="add_to_cart('{{x.idd}}')"></i>
+                        <i  class="fa fa-cart-plus fa-2x" style=" float:right;" aria-hidden="true"  onclick="add_to_cart('{{x.id}}')"></i>
 
                     </div>
                     <div class="card-body">

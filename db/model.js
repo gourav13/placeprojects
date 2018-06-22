@@ -8,8 +8,8 @@ const db=new sequelize('userdata','username','userpass',
 }
 )
 
-const user=db.define('usertable',{
-    fname:{
+const user=db.define('usertabl',{
+    username:{
         type:datatypes.STRING,
         allowNull:false
     },
@@ -34,9 +34,9 @@ const products=db.define('producttable',{
 
 const cart=db.define('carttable',{
      iid:datatypes.INTEGER,
-     quantity:datatypes.INTEGER
+       quantity:datatypes.INTEGER
 })
-
+cart.belongsTo(products);
 
 db.sync().then(() => "Database created")
 

@@ -24,12 +24,14 @@
                 <td>serial no.</td>
                 <td>product name</td>
                 <td>product price</td>
+                <td>quantity</td>
             </tr>
-            {{#each arr as |x|}}
+            {{#each item as |x|}}
             <tr>
                 <td id="serial"><script>document.write(func())</script> </td>
-                <td>{{x.pname}}</td>
-                <td>{{x.pprice}}</td>
+                <td>{{x.producttable.pname}}</td>
+                <td>{{x.producttable.pprice}}</td>
+                <td>{{x.quantity}}</td>
             </tr>
             {{/each}}
         </table>

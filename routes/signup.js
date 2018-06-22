@@ -6,10 +6,10 @@ route.get('/',(req,res)=>{
 
 route.post('/', (req, res) => {
     User.create({
-        fname: req.body.fname,
+        username: req.body.fname,
         password: req.body.password
     }).then((user) => {
-        res.redirect('/')
+        res.redirect('/login')
     })
 })
 

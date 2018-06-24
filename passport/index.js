@@ -2,9 +2,10 @@ const passport = require('passport')
 const strategies = require('./strategies')
 const User = require('../db/model').user
 
-passport.use(strategies.localStrategy)
-
+ passport.use(strategies.localStrategy)
+    //console.log(user)
 passport.serializeUser(function (user, done) {
+    console.log(user.username+'tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt-------------------------')
     console.log('serialize' + user.id)
     done(null, user.id)
 })

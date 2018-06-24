@@ -5,9 +5,11 @@ route.get('/',(req,res)=>{
      res.render('login.hbs');
 })
 
-route.post('/', passport.authenticate('local', {
-    successRedirect: '/addproducts',
-    failureRedirect: '/login'
-}))
+route.post('/', passport.authenticate('local'), (req,res)=>
+{
+    console.log(req.user)
+    console.log(req.user.username)
+res.render('addproducts.hbs')
+})
 
 exports=module.exports=route

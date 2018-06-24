@@ -8,12 +8,13 @@ const db=new sequelize('userdata','username','userpass',
 }
 )
 
-const user=db.define('usertabl',{
+ const user=db.define('usertabl',{
     username:{
         type:datatypes.STRING,
         allowNull:false
     },
-    password:datatypes.STRING
+    password:datatypes.STRING,
+
 
 })
 // const products=db.define('producttable',{
@@ -32,12 +33,14 @@ const products=db.define('producttable',{
      }
 })
 
-const cart=db.define('carttable',{
+const cart=db.define('car',{
      iid:datatypes.INTEGER,
-       quantity:datatypes.INTEGER
+       quantity:datatypes.INTEGER,
+    user_id:datatypes.INTEGER
 })
 cart.belongsTo(products);
 
+ //cart.sync({force:true});
 db.sync().then(() => "Database created")
 
 exports = module.exports = {

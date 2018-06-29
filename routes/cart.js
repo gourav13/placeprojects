@@ -26,14 +26,20 @@ const Op = sequelize.Op
 
 
 route.post('/',(req,res)=>{
-
+  if(!req.user)
+  {
+      res.sendStatus(200)
+  }
      cartitem.findOrCreate({where:{producttableId:req.body.iiid,user_id:req.user.id}}).spread((user,created)=>{
          if(created==true)
 {     cartitem.update({ quantity:1 }, { where: {producttableId :req.body.iiid } }); }
-         else
-              { cartitem.update({ quantity: sequelize.literal('quantity + 1') }, { where: { producttableId:req.body.iiid,user_id:req.user.id } });}
+     else
+         { cartitem.update({ quantity: sequelize.literal('quantity + 1') }, { where: { producttableId:req.body.iiid,user_id:req.user.id } });}
 })
-    })
+
+
+
+})
 
 
 exports=module.exports=route

@@ -5,8 +5,18 @@ const upload = multer({dest: 'uploads/'})
 const fs = require('fs')
 
 route.get('/',(req,res)=>{
+    if(req.user)
+{
+    console.log(req.user.username + '---------------------')
+    req.user.place = 'delhi';
+    console.log(req.user.place + '---------------------')
 
-     res.render('addproducts.hbs')
+    res.render('addproducts.hbs')
+}
+else
+    {
+        res.redirect('/login')//.json({ error: 'sorry login please' })
+    }
 })
 route.post('/',(req,res)=>
 {

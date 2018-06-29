@@ -35,7 +35,8 @@ app.set ('port',(process.env.PORT||3030));
  app.set('views engine','hbs');
 
 app.get('/',(req,res)=>{
-    res.render('front.hbs',{a})
+  //  res.sendfile('htmlpages/products.html')
+   res.render('product.hbs')
 })
 app.use(session({
     secret: 'some very secret thing',
